@@ -10,18 +10,23 @@
 html,
 body {
   overflow: hidden;
+  height: 100%;
+  margin: 0;
 }
 
 body {
   margin: 0;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   user-select: none;
   -webkit-app-region: drag;
   border-radius: 20px;
-  margin: 0;
   background: transparent;
-
 }
 
 .app {
@@ -30,12 +35,12 @@ body {
   overflow: hidden;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.25rem;          /* tighter space between title and inner square */
+  gap: 0.25rem;        
   width: 16rem;          
-  padding: 1.2rem 1.5rem 1.1rem; /* slightly less top/bottom padding so content sits higher */
+  padding: 1.2rem 1.5rem 1.1rem; 
   min-height: fit-content;
 
-  /* Fallback if image assets are missing */
+  
   background: radial-gradient(circle at 0 0, #ffd6ff, #c77dff 40%, #7b2cbf 100%);
   background-image: url("Assets/outter box.png");
   background-size: cover;
@@ -77,51 +82,17 @@ select {
 }
 
 .Weather {
+  animation: popIn 0.4s ease-out;
   margin: 0;
   color: #fff;
   font-family: Pixeboy;
-  font-size: 5.2rem; /* a bit bigger */
+  font-size: 5.2rem; 
   font-weight: 400;
   line-height: 0.9;
   text-align: center;
 
   -webkit-text-stroke: 1.2px #C079FF;
   paint-order: stroke fill;
-}
-
-.city {
-  margin: 0;
-  margin-top: 0.2rem;
-  font-family: Pixeboy;
-  font-size: 1rem;
-  color: #fff;
-  opacity: 0.65;
-  letter-spacing: 1.5px;
-}
-
-
-.container { 
-  display: flex;
-  overflow: hidden;
-  width: 13rem;         /* larger inner square */
-  min-height: 9.5rem;
-  flex-shrink: 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.25rem;
-
-  /* Fallback if image assets are missing */
-  background: radial-gradient(circle at 0 0, #f9dfff, #f0a6ff 45%, #c77dff 100%);
-  background-image: url("Assets/content-frame.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.Weather {
-  animation: popIn 0.4s ease-out;
 }
 
 @keyframes popIn {
@@ -133,4 +104,36 @@ select {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.city {
+  margin: 0;
+  margin-top: 0.2rem;
+  font-family: Pixeboy;
+  font-size: 1.5rem;
+  -webkit-text-stroke: 0.8px #C079FF;
+  color: #fff;
+  opacity: 0.65;
+  letter-spacing: 1.5px;
+}
+
+
+.container { 
+  display: flex;
+  overflow: hidden;
+  width: 13rem;   
+  min-height: 9.5rem;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+
+
+  background: radial-gradient(circle at 0 0, #f9dfff, #f0a6ff 45%, #c77dff 100%);
+  background-image: url("Assets/content-frame.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
